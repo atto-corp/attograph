@@ -1,0 +1,25 @@
+[package]
+name = "attograph"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+async-trait = "0.1"
+bullmq = { package = "bullmq-official", version = "1.2" }
+chrono = { version = "0.4", features = ["serde"] }
+futures = "0.3"
+mongodb = { version = "3.8", optional = true }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+thiserror = "2"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+uuid = { version = "1", features = ["v4", "serde"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
+
+[features]
+default = ["mongo"]
+mongo = ["dep:mongodb"]
